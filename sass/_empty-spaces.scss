@@ -1,0 +1,59 @@
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+/* 04 - EMPTY SPACE */
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+
+.floatSpace {position: relative;float: left; width: 100%}
+
+$i: 5;
+@while  $i < 205 {
+    .emptySpace#{$i} {
+        height: #{$i + px};
+    }
+    $i: $i + 5;
+}
+
+/*Media-Queries*/
+
+// Laptop
+@media (max-width: 1500px) {
+    $i: 5;
+    @while  $i < 205 {
+        .emptySpace-lt#{$i} {
+            height: #{$i + px};
+        }
+        $i: $i + 5;
+    }
+}
+
+// Laptop small
+@media (max-width: 1199px) {
+    $i: 0;
+    @while  $i < 205 {
+        .emptySpace-md#{$i} {
+            height: #{$i + px};
+        }
+        $i: $i + 5;
+    }
+}
+
+// Tablet
+@media (max-width: 991px) {
+    $i:0;
+    @while  $i < 205 {
+        .emptySpace-sm#{$i} {
+            height: #{$i + px};
+        }
+        $i: $i + 5;
+    }
+}
+
+// Mobile
+@media (max-width: 767px) {
+    $i: 0;
+    @while  $i < 205 {
+        .emptySpace-xs#{$i} {
+            height: #{$i + px};
+        }
+        $i: $i + 5;
+    }
+}

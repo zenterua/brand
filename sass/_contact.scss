@@ -1,0 +1,82 @@
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+/* 00 - CONTACT */
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+
+.contactInfo {
+	text-align: center;
+	font-weight: 500;
+	display: table;
+	margin: 0 auto;
+	.as {
+		position: relative;
+		font-weight: 500;
+		padding: 10px 15px;
+		overflow: hidden;
+		transition: color 250ms linear;
+		&:before,
+		&:after {
+			position: absolute;
+		    top: 0;
+		    left: -14px;
+		    width: calc(50% + 15px);
+		    height: 100%;
+		    background: $yellowColor;
+		    z-index: -1;
+		    transform: translateY(100%) skew(15deg);
+		    transition: transform 350ms ease-out;
+		    content: '';
+		}
+		&:after {
+			left: auto;
+			transform: translateY(-100%) skew(15deg);
+		    right: -14px;
+		}
+	}
+	p {
+		font-size: 18px;
+		line-height: 22px;
+		display: block;
+	}
+	.imgWrapper {
+		display: inline-block;
+	}
+	span {
+		display: block;
+	}
+}
+
+/*----------------------------------------------------------------*/
+/* HOVER
+/*----------------------------------------------------------------*/
+
+@media (min-width: 992px) {
+	body:not(.mobile) {
+		.contactInfo a:hover .as {
+			color: #fff;
+			&:before,
+			&:after {
+				transform: translateY(0) skew(15deg);
+			}
+		}
+	}
+}
+
+/*----------------------------------------------------------------*/
+/* Media Queries
+/*----------------------------------------------------------------*/
+
+@media (max-width: 1500px) {
+
+}
+
+@media (max-width: 1199px) {
+
+}
+
+@media (max-width: 991px) {
+    
+}
+
+@media (max-width: 767px) {
+    
+}

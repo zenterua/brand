@@ -1,0 +1,271 @@
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+/* 06 - POPUPS */
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+
+.popupWrapper {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    z-index: 11;
+    transition: left 1ms linear 600ms;
+    &.active {
+        left: 0;
+        transition: left 1ms linear;
+        .bgLayer {
+            opacity: 1;
+            transition: opacity 300ms linear;
+        }
+    }
+    .bgLayer {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: -100px;
+        bottom: -100px;
+        opacity: 0;
+        background: rgba(0, 0, 0, .8);
+        transition: opacity 300ms linear 300ms;
+    }
+}
+
+.buttonClose {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    top: 25px;
+    right: 10px;
+    cursor: pointer;
+    z-index: 3;
+    transition: all 0.4s ease-in-out;
+    span:first-child,
+    span:last-child {
+        display: block;
+        position: absolute;
+        background: #6b6b6b;
+        display: block;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        transition: background 300ms ease-out;
+        transform: translate(-50%, -50%) rotate(45deg);
+        transition: width 300ms ease-out;
+        content: "";
+        &:before {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: $yellowColor;
+            transition: width 200ms ease-out;
+            content: '';
+        }
+    }
+    span:last-child {
+        transform: translate(-50%, -50%) rotate(-45deg);
+        &:before {
+            top: 0;
+            bottom: auto;
+            background: $yellowColor;
+            transition: width 200ms ease-out 200ms;
+        }
+    }
+}
+
+.popupContent {
+    position: absolute;
+    top: 0;
+    left: -10000px;
+    width: 100%;
+    height: 100%;
+    padding: 15px;
+    opacity: 0;
+    font-size: 0;
+    overflow: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    text-align: center;
+    transform: translateY(100px);
+    transition: transform 300ms linear, height 300ms linear, opacity 300ms linear 300ms, left 0s linear 300ms;
+    &.active {
+        position: relative;
+        opacity: 1;
+        left: 0;
+        transform: translateY(0);
+        transition: transform 300ms linear, height 300ms linear, opacity 300ms linear 300ms, left 0s linear; 
+        .buttonClose span {
+            width: 100%;
+            transition: width 300ms ease-out 800ms;
+        }
+        .fadeInTop {
+            opacity: 1;
+            transform: translateY(0);
+            transition: transform 1000ms cubic-bezier(0.455, 0.030, 0.515, 0.955), opacity 1000ms cubic-bezier(0.455, 0.030, 0.515, 0.955)
+        }
+        .popupDelay {
+            transition-delay: 150ms;
+        }
+        .popupDelay2 {
+            transition-delay: 300ms;
+        }
+        .popupDelay3 {
+            transition-delay: 450ms;
+        }
+        .popupDelay4 {
+            transition-delay: 600ms;
+        }
+    }
+    .layerClose {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        height: 10000px;
+    }
+    .fadeInTop {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    // Video popup animation
+    
+    &[data-rel="videoPopup"] {
+        padding: 0;
+        height: 0;
+        left: 0;
+        transform: translateY(0);
+        transition: height 350ms linear, left 0s linear 600ms, opacity 0s linear 500ms;
+        .popupContainer {
+            height: 100%;
+            background: #000;
+        }
+        iframe  {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        &.active {
+            height: 100%;
+            transition: height 350ms linear;
+        }
+    }
+
+    // Iframe popup
+    &.iframeContainer {
+        .popupContainer {
+            background: transparent;
+            height: 100%;
+            overflow: hidden;
+        }
+        &.active .iframeWrapper {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    &:after {
+        display: inline-block;
+        vertical-align: middle;
+        height: 100%;
+        content: '';
+    }
+}
+
+.popupContainer {
+    display: inline-block;
+    vertical-align: middle;
+    max-width: 100%;
+    width: 100%;
+    position: relative;
+    text-align: left;
+    background: #fff;
+    &.size1 {
+        max-width: 750px;
+    }
+    .buttonClose {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+    }
+}
+
+// Video popup
+
+.popupVideoWrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.iframeWrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    iframe {
+        width: 100%;
+        height: 100%;
+    }
+    #container {
+        border: 0 !important;
+    }
+}
+
+.thankYouMsg {
+    position: relative;
+    padding: 60px 30px;
+    text-align: center;
+    .imgWrapper {
+        display: table;
+        margin: 0 auto 20px;
+    }
+}
+
+.open-popup {
+    cursor: pointer;
+}
+
+/*----------------------------------------------------------------*/
+/* HOVER
+/*----------------------------------------------------------------*/
+
+@media (min-width: 992px) {
+    body:not(.mobile) {
+        .buttonClose:hover {
+            span:first-child:before,
+            span:last-child:before  {
+                width: 100%;
+            }
+        }
+        .trapeze.open-popup:hover {
+            opacity: .8;
+        }
+    }
+}
+
+/*----------------------------------------------------------------*/
+/* Media Queries
+/*----------------------------------------------------------------*/
+
+@media (max-width: 1500px) {
+
+}
+
+@media (max-width: 1199px) {
+
+}
+
+@media (max-width: 991px) {
+    
+}
+
+@media (max-width: 767px) {
+    
+}

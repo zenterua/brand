@@ -1,0 +1,398 @@
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+/* 08 - TABS */
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+
+.tabsBlock {
+    padding-left: 75px;
+    overflow: hidden;
+    display: flex;
+    .sectionTitle {
+        text-align: left;
+        display: inline-block;
+    }
+    &.style2 {
+        position: relative;
+        display: block;
+        padding-left: 0;
+        .overflowContent {
+            padding: 0;
+            margin: 0;
+            &.overFlowHeight {
+                height: 140px;
+            }
+        }
+        .tabsMenuWrapp {
+            text-align: center;
+        }
+        .tabMenu {
+            display: inline-block;
+            vertical-align: middle;
+            padding: 5px;
+            margin: 10px;
+            color: #fff;
+            z-index: 1;
+            &:before {
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 0;
+                z-index: -1;
+                transition: height 250ms linear;
+            }
+            &:after {
+                content: none;
+            }
+            b {
+                font-size: 12px;
+                line-height: 15px;
+            }
+            &.active {
+                color: $blackColor;
+                &:before {
+                    height: 100%;
+                }
+            }
+        }
+        .tabEntry {
+            overflow-y: auto;
+        }
+        .mobileTabMenu {
+            padding-left: 60px;
+        }
+    }
+}
+
+.tabMenu {
+    position: relative;
+    display: block;
+    cursor: pointer;
+    color: #d1d1d1;
+    font-size: 12px;
+    line-height: 15px;
+    font-weight: 300;
+    padding-left: 21px;
+    margin-bottom: 25px;
+    transition: color 250ms linear;
+    &:before {
+        position: absolute;
+        top: 14px;
+        left: 0;
+        width: 16px;
+        height: 4px;
+        background: $yellowColor;
+        content: '';
+    }
+    &:after {
+        position: absolute;
+        top: 14px;
+        left: 0;
+        width: 16px;
+        height: 4px;
+        background: $yellowColor;
+        transform: rotate(90deg);
+        content: '';
+    }
+    &:last-child {
+        margin-bottom: 0;
+    }
+    &.active {
+    	color: $yellowColor;
+    }
+    b {
+        font-size: 22px;
+        line-height: 32px;
+        display: block;
+        transition: color 250ms linear;
+    }
+    span {
+        transition: color 250ms linear;
+    }
+}
+
+.tabEntry {
+    display: none;
+    height: 100%;
+    .row,
+    *[class*='col-'],
+    .tableView {
+        height: inherit;
+    }
+}
+
+.tabEntry.tabAnimated {
+    position: relative;
+    overflow: hidden;
+    .animationWave {
+        &:after {
+            opacity: 1;
+            width: 100%;
+            transform: translateX(-200%);
+            transition: opacity 200ms cubic-bezier(.455,.03,.515,.955), width 500ms cubic-bezier(.455,.03,.515,.955) 150ms, transform 500ms cubic-bezier(.455,.03,.515,.955) 500ms;
+        }
+        .animationWave2 {
+            &:after {
+                opacity: 1;
+                width: 100%;
+                transform: translateX(200%);
+                transition: opacity 200ms cubic-bezier(.455,.03,.515,.955), width 500ms cubic-bezier(.455,.03,.515,.955) 150ms, transform 500ms cubic-bezier(.455,.03,.515,.955) 500ms;
+            }
+        }
+    }
+    .tabEnteryContent,
+    .tabAnimationWrapper .tabAminationBlock .tabSection {
+        opacity: 1;
+        transition: opacity 250ms cubic-bezier(.455,.03,.515,.955) 600ms,
+    }
+
+}
+
+.tabAnimationWrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60%;
+    height: 100%;
+    .animationWave {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        &:after {
+            position: absolute;
+            top: 0;
+            right: 49%;
+            width: 0;
+            height: 100%;
+            opacity: 0;
+            background-color: $yellowColor;
+            content: '';
+        }
+        .animationWave2 {
+            &:after {
+                position: absolute;
+                top: 0;
+                left: 49%;
+                width: 0;
+                height: 100%;
+                opacity: 0;
+                background-color: $yellowColor;
+                content: '';
+            }
+        }
+    }
+    .tabAminationBlock {
+        position: absolute;
+        top: -50%;
+        right: 40px;
+        width: 100%;
+        height: 100%;
+        min-height: 2000px;
+        transform: rotate(33deg);
+        .tabSection {
+            position: absolute;
+            top: -61%;
+            left: 0;
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            opacity: 0;
+            &.style1 {
+                max-width: 40%;
+            }
+            &.style2 {
+                max-width: calc(60% - 30px);
+                top: 0;
+                left: auto;
+                right: 0;
+                .topSection {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    width: 100%;
+                    height: calc(25%);
+                    .bgImage {
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        width: 100%;
+                        height: 100%;
+                        &.animationTab {
+                            right: 50%;
+                            left: auto;
+                        }
+                    }
+                }
+                .bottomSection {
+                    position: absolute;
+                    top: calc(25% + 30px);
+                    bottom: 0;
+                    right: 0;
+                    width: 100%;
+                    height: 100%;
+                    overflow: hidden;
+                    .bgImage {
+                        top: -115px;
+                        left: auto;
+                        right: 0;
+                        width: 900px;
+                        height: 900px;
+                        background-position: 0 0;
+                        transform: rotate(-32deg);
+                        
+                    }
+                }
+            }
+            .imgWrapper {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+                img {
+                    position: absolute;
+                    bottom: -70px;
+                    left: 35px;
+                    transform: rotate(-25deg);
+                }
+            }
+        }
+    }
+}
+
+.mobileTabMenu {
+    position: relative;
+    border: 1px solid #fff;
+    padding: 13px 60px 13px 15px;
+    margin-bottom: 30px;
+    display: none;
+    .angleIconDown {
+        top: 50%;
+        margin-top: -8px;
+    }
+}
+
+.mainMenuTabWrap {
+    position: relative;
+}
+
+/*----------------------------------------------------------------*/
+/* HOVER
+/*----------------------------------------------------------------*/
+
+@media (min-width: 992px) {
+    body:not(.mobile) {
+        .tabsBlock {
+            .tabMenu:hover {
+                span,
+                .tabTitle {
+                    color: $yellowColor;
+                }
+            }
+            &.style2 {
+                .tabMenu:hover {
+                    color: $blackColor;
+                    &:before {
+                        height: 100%;
+                    }
+                    .tabTitle {
+                        color: $blackColor;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*----------------------------------------------------------------*/
+/* Media Queries
+/*----------------------------------------------------------------*/
+
+@media (max-width: 1500px) {
+    .tabsBlock {
+        padding-left: 0;
+    }
+}
+
+@media (max-width: 1199px) {
+
+}
+
+@media (max-width: 991px) {
+    .tabAnimationWrapper {
+        display: none;
+    }   
+    .tabsBlock.style2 .overflowContent.overFlowHeight {
+        height: auto;
+    }
+    #why-brandSafway .tabEntry  {
+        padding: 0 15px;
+    }
+}
+
+@media(min-width: 992px) {
+    .tabEnteryContent {
+        opacity: 0;
+    }
+}
+
+@media (max-width: 767px) {
+    .teamMember .as {
+        margin-bottom: 15px;
+    }
+    .tabsBlock,
+    .mobileTabMenu {
+        display: block;
+    }
+    .tabsMenuWrapp {
+        display: none;
+    }
+    .tabsBlock {
+        overflow: visible;
+        .sectionTitle {
+            display: block;
+            text-align: center;
+        }
+        &.style2 {
+            .mobileTabMenu {
+                margin-bottom: 0;
+                .as {
+                    font-size: 16px;
+                    line-height: 22px;
+                }
+            }
+            .tabsMenuWrapp {
+                position: absolute;
+                top: auto;
+                bottom: 100%;
+                left: 0;
+                width: 100%;
+                background-color: #fff;
+                box-shadow: 0 4px 10px rgba(41,42,46,.4);
+                z-index: 5;
+            }
+            .tabEntry {
+                height: auto;
+            }
+            .tabMenu  {
+                display: block;
+                margin: 0;
+                padding: 15px;
+                color: $blackColor;
+                .as {
+                    font-size: 18px;
+                    line-height: 24px;
+                }
+                &:before {
+                    transition-delay: 150ms;
+                }
+            }
+        }
+    }
+    .tabEntry .cellView {
+        padding-top: 15px;
+    }
+
+}

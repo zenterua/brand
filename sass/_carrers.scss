@@ -1,0 +1,179 @@
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+/* 00 - CAREERS */
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+
+.careersSideImg {
+	position: relative;
+	text-align: center;
+	overflow: hidden;
+	z-index: 6;
+	&:before {
+	    position: absolute;
+	    bottom: 0;
+	    left: 0;
+	    width: 0;
+		height: 0;
+		border-left: 275px solid transparent;
+	    border-right: 275px solid transparent;
+	    border-bottom: 180px solid #fff;
+	    content: '';
+	}
+	.imgWrapper {
+		position: relative;
+		display: inline-block;
+		vertical-align: bottom;
+		z-index: 2;
+		padding-top: 15px;
+	}
+	&.color2 {
+		&:before,
+		&:after {
+			border-bottom-color: $blackColor; 
+		}
+	}
+}
+
+.carrersInfo {
+	position: relative;
+	z-index: 6;
+	.tableView {
+		height: 450px;
+	}
+	.cellView {
+		padding: 75px 0;
+	}
+}
+
+.docWrapper {
+	text-align: center;
+	.docDownload {
+		position: relative;
+		max-width: 260px;
+		height: 260px;
+		display: block;
+		text-align: center;
+		font-size: 0;
+		margin: 0 auto;
+		&:after {
+			display: inline-block;
+			vertical-align: middle;
+			height: 100%;
+			content: '';
+		}
+		.button {
+			vertical-align: middle;
+		}
+	}
+	ul li {
+		cursor: pointer;
+		display: inline-block;
+		margin: 0 7px;
+		position: relative;
+		padding: 0 3px;
+		overflow: hidden;
+		transition: color 250ms linear;
+		b {
+			transition: color 250ms linear;
+		}
+		&:before,
+		&:after {
+			position: absolute;
+		    top: 0;
+		    left: -14px;
+		    width: calc(50% + 15px);
+		    height: 100%;
+		    background: $yellowColor;
+		    z-index: -1;
+		    transform: translateY(100%) skew(15deg);
+		    transition: transform 350ms ease-out;
+		    content: '';
+		}
+		&:after {
+			left: auto;
+			transform: translateY(-100%) skew(15deg);
+		    right: -14px;
+		}
+		&.active {
+			color: #fff;
+			&:before,
+			&:after {
+				transform: translateY(0) skew(15deg);
+			}
+		}
+	}
+}
+
+body.mobile {
+	.mobileColor {
+		background: #e8e8e8;
+	}
+	.mobileColor2 {
+		background: #1b1b1b;
+	}
+}
+
+
+/*----------------------------------------------------------------*/
+/* HOVER
+/*----------------------------------------------------------------*/
+
+@media (min-width: 992px) {
+	body:not(.mobile) {
+		.docWrapper ul li{
+			&:hover b {
+				color: $yellowColor;
+			}
+			&.active:hover b {
+				color: #fff;
+			}
+		}
+	}
+}
+
+/*----------------------------------------------------------------*/
+/* Media Queries
+/*----------------------------------------------------------------*/
+
+@media (max-width: 1500px) {
+
+}
+
+@media (max-width: 1199px) {
+	.careersSideImg {
+		&:before {
+			border-right: 220px solid transparent;
+			border-left: 220px solid transparent;
+		}
+	}
+}
+
+@media (max-width: 991px) {
+    .careersSideImg {
+		&:before {
+			border-left: 170px solid transparent;
+			border-right: 170px solid transparent;
+		}
+    }
+}
+
+@media (max-width: 767px) {
+	.careersSideImg {
+		display: none;
+		&:before,
+		&:after {
+			content: none;
+		}
+    	.imgWrapper {
+	    	padding-top: 0;
+	    }
+    }
+	.carrersInfo {
+		.tableView {
+			height: auto;
+		}
+	    .cellView {
+	    	padding: 45px 0;
+	    }
+	}
+    
+}

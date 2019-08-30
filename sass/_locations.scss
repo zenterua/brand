@@ -1,0 +1,318 @@
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+/* 00 - LOCATIONS */
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+
+.locationResultWrapper {
+	position: relative;
+	.sectionTitle {
+		padding: 0 85px;
+	}
+	.locationCounter {
+		display: block;
+		position: absolute;
+		top: 50%;
+		right: 0;
+		transform: translateY(-50%);
+		span {
+			display: inline-block;
+		}
+	}
+}
+
+.locationNav {
+	display: flex;
+	padding: 30px 25px;
+	background-color: #fff;
+	transition: padding 200ms linear;
+	> label {
+		width: 20%;
+		margin: 0 5px;
+		flex-grow: 2;
+	}
+	.locationInput {
+		max-width: 140px;
+		.simpleInput {
+			height: 40px;
+		}
+	}
+	.SumoSelect>.optWrapper>.options li.opt {
+		margin-left: 0;
+		margin-right: 0;
+	}
+}
+
+.locationNaVPosition {
+	position: relative;	
+	float: left;
+	width: 100%;
+	margin-top: -215px;
+	.stickyWrapper  {
+		min-height: 132px;
+	}
+	.stickyContent {
+		border: 0;
+		background-color: transparent;
+		&.stickyBorders.sticky {
+			border-top: 1px solid #d1d1d1;
+		    border-bottom: 1px solid #d1d1d1;
+		    background: #fff;
+		}
+	}
+}
+
+.brandLogo {
+	position: relative;
+	overflow: hidden;
+	text-align: center;
+	.imgWrapper {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		padding: 15px;
+		transform: translate(-50%, -50%);
+		overflow: hidden;
+		img {
+			max-width: 1140px;
+			max-height: 240px;
+		}
+	}
+	&.tableView {
+		display: block;
+		margin-top: 90px;
+		.cellView {
+			display: block;
+			width: auto;
+			padding: 0;
+		}
+	}
+}
+
+.locationDetails {
+	position: relative;
+	&.light {
+		color: #fff;
+	}
+	a:not(.button) {
+		transition: color 250ms linear;
+	}
+}
+
+.locationDetails a:not(.button):hover {
+	color: $yellowColor;
+}
+
+.map-locations-wrapper {
+	div {
+		position: relative;
+		font-size: 0;
+		padding: 27px 40px;
+		border-bottom: 1px solid #d1d1d1;
+		&:before {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 0;
+			z-index: -1;
+			background-color: $yellowColor;
+			transition: height 300ms cubic-bezier(.455,.03,.515,.955);
+			content: '';
+		}
+		a {
+			transition: color 250ms linear;
+		}
+	}
+	span {
+		font-size: 12px;
+		line-height: 15px;
+		font-weight: 500;
+		display: inline-block;
+		vertical-align: middle;
+		width: 33.3333%;
+		white-space: nowrap;
+	    text-overflow: ellipsis;
+	    overflow: hidden;
+		&:nth-child(2) {
+			text-align: center;
+		}
+		&:nth-child(3) {
+			text-align: right;
+		}
+	}
+}
+
+ /*popup*/
+.map-popup {
+    position: fixed;
+    left: -100%;
+    width: 100%;
+    top: -100px;
+    bottom: -100px;
+    z-index: 10;
+    transition: left 0s .3s;
+    &.active {
+	    left: 0;
+	    transition: left 0s;
+	    -webkit-transition: left 0s;
+	    &:before {
+	    	background: rgba(0,0,0,.8);
+	    }
+	    .map-popup-content {
+		    transform: scale(1);
+		    opacity: 1;
+		}
+		.buttonClose span {
+			width: 100%;
+			transition: width .3s ease-out 150ms;
+		}
+	}
+	&:before {
+	    position: absolute;
+	    left: 0;
+	    top: 0;
+	    width: 100%;
+	    height: 100%;
+	    background: rgba(255, 255, 255, 0);
+	    content: "";
+	    transition: .3s;
+	}
+	.map-popup-content {
+		position: absolute;
+	    left: 0;
+	    top: 100px;
+	    right: 0;
+	    bottom: 100px;
+	    padding: 15px;
+	    font-size: 0;
+	    text-align: center;
+	    transform: scale(1.1);
+	    opacity: 0;
+	    overflow: auto;
+	    -webkit-overflow-scrolling: touch;
+	    transition: .3s;
+	    &:after {
+		    content: "";
+		    display: inline-block;
+		    vertical-align: middle;
+		    height: 100%;
+		}
+		.map-popup-close {
+		    position: absolute;
+		    left: 0;
+		    top: 0;
+		    width: 100%;
+		    height: 100%;
+		}
+	}
+	.map-popup-align {
+	    display: inline-block;
+	    width: 500px;
+	    max-width: 100%;
+	    padding: 70px 30px 70px;
+	    background: #fff;
+	    vertical-align: middle;
+	    position: relative;
+	}
+	.map-popup-text {
+	    font-size: 24px;
+	    line-height: 32px;
+	}
+	.buttonClose {
+	    right: 10px;
+	    top: 10px;
+	}
+}
+
+/*----------------------------------------------------------------*/
+/* HOVER
+/*----------------------------------------------------------------*/
+
+@media (min-width: 992px) {
+	body:not(.mobile) {
+		.map-locations-wrapper div:hover{
+			&:before {
+				height: 100%;
+			}
+			a:hover {
+				color: $burgundyColor;
+			}
+		}
+	}
+}
+
+/*----------------------------------------------------------------*/
+/* Media Queries
+/*----------------------------------------------------------------*/
+
+@media (max-width: 1500px) {
+
+}
+
+@media (max-width: 1199px) {
+
+}
+
+@media (max-width: 991px) {
+    .brandLogo.tableView {
+    	margin-top: 0;
+    }
+    .stickyWrapper .stickyContent {
+    	.locationNav {
+	    	display: none;
+	    	padding: 15px;
+	    	transition: none;
+	    	> label {
+	    		width: 100%;
+	    		margin: 0 0 15px 0;
+	    		&:last-child {
+	    			margin-bottom: 0
+	    		}
+	    	}
+	    	.locationInput {
+	    		max-width: 100%;
+	    	}
+	    }
+    }
+    
+    .locationNaVPosition {
+    	margin-top: auto;
+    	.stickyWrapper {
+    		min-height: 1px;
+    	}
+    	.mobileStickynav {
+    		border-bottom: 0;
+    	}
+    }
+}
+
+@media (max-width: 767px) {
+    .locationResult {
+    	li {
+    		padding: 15px;
+    	}
+    	span {
+	    	width: 100%;
+	    	display: block;
+	    	text-align: center;
+	    	margin-bottom: 15px;
+	    	&:nth-child(3) {
+	    		text-align: center;
+	    		margin-bottom: 0;
+	    	}
+	    }
+    }
+    .locationResultWrapper {
+    	.sectionTitle .as {
+    		margin-bottom: 5px;
+    	}
+    	.locationCounter {
+    		position: relative;
+	    	top: auto;
+	    	left: auto;
+	    	transform: translate(0, 0);
+	    }
+	    .sectionTitle {
+	    	padding: 0;
+	    }
+    }
+}

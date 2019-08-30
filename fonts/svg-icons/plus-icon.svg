@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100" height="100" viewBox="0 0 100 100">
+  <defs>
+    <polygon id="large+icon-a" points="0 0 91.136 0 91.136 91.136 0 91.136"/>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <rect width="100" height="100"/>
+    <polygon fill="#F2A900" points="17.971 17.971 0 17.971 0 29.952 17.971 29.952 17.971 47.923 29.952 47.923 29.952 29.952 47.923 29.952 47.923 17.971 29.952 17.971 29.952 0 17.971 0" transform="translate(26 26)"/>
+    <g opacity=".301" transform="translate(4 4)"/>
+  </g>
+</svg>

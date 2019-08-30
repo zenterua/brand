@@ -1,0 +1,171 @@
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+/* 00 - WHO WE ARE */
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+
+.counterWrapper {
+	position: relative;
+	.counterNumber {
+		text-align: center;
+		span {
+			font-size: 18px;
+			line-height: 22px;
+			display: block;
+		}
+		i {
+			font-size: 78px;
+			line-height: 96px;
+			font-weight: 500;
+			display: inline-block;
+			vertical-align: middle;
+		}
+		p {
+			display: inline-block;
+			vertical-align: middle;
+			letter-spacing: -4px;
+		}
+	}
+	.count {
+		font-size: 0;
+		color: $blackColor;
+		opacity: 0;
+		transition: opacity 300ms linear;
+		p {
+			font-size: 78px;
+			line-height: 96px;
+			font-weight: 500;
+		}
+		&.showNumber {
+			opacity: 1;
+		}
+	}
+}
+
+
+// Team member
+.ladership {
+	text-align: center;
+	font-size: 0;
+	> *[class*="col-"] {
+		display: inline-block;
+		vertical-align: top;
+		float: none;
+	}
+}
+.teamMember {
+	position: relative;
+	text-align: center;
+	font-weight: 500;
+	display: block;
+	backface-visibility: hidden;
+    overflow: hidden;
+	transition: transform 300ms ease-out;
+	.as {
+		margin-bottom: 5px;
+		transition: color 250ms linear;
+	}
+	p {
+		margin-top: 5px;
+		min-height: 40px;
+		padding: 0 25px;
+	}
+}
+
+.patternSeparator {
+	position: relative;
+	width: 100%;
+	display: block;
+	height: 8px;
+	margin: 8px 0;
+	overflow: hidden;
+	background-image: url(../fonts/svg-icons/diagonal-slanted-lines.svg);
+	background-repeat: repeat-x;
+	background-size: cover;
+	background-position: 50% 50%;
+	&:before,
+	&:after {
+		position: absolute;
+	    top: 0;
+	    left: -15px;
+	    width: calc(50% + 15px);
+	    height: 100%;
+	    background: $yellowColor;
+	    transform: translateY(110%) skew(15deg);
+	    transition: transform 350ms ease-out;
+	    content: '';
+	}
+	&:after {
+		left: auto;
+		right: -15px;
+		background: $burgundyColor;
+		transform: translateY(-110%) skew(15deg);
+	}
+}
+
+.deliveryWrapp {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 0 -15px;
+	.imgWrapper {
+		position: relative;
+		padding: 0 15px;
+		overflow: hidden;
+	}
+	.deliveryImg {
+		max-width: 600px;
+	}
+}
+
+
+
+/*----------------------------------------------------------------*/
+/* HOVER
+/*----------------------------------------------------------------*/
+
+@media (min-width: 992px) {
+}
+
+/*----------------------------------------------------------------*/
+/* Media Queries
+/*----------------------------------------------------------------*/
+
+@media (max-width: 1500px) {
+	body.mobile {
+		#why-brandSafway {
+			background-color: $blackColor;
+		}
+	}
+}
+
+@media (max-width: 1199px) {
+}
+
+@media (max-width: 991px) {
+    .deliveryWrapp {
+    	display: none;
+    }
+    .counterWrapper .count {
+    	p,i {
+	    	font-size: 50px;
+	    	line-height: 65px;
+	    }
+    }
+}
+
+@media (max-width: 767px) {
+    .ladership {
+		> *[class*="col-"] {
+			display: block;
+		}
+	}
+	.teamMember {
+		.as {
+			margin-bottom: 12px;
+		}
+		p {
+			margin-top: 12px;
+			min-height: 1px;
+		}
+	}
+
+}
